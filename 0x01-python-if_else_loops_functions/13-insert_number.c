@@ -4,9 +4,9 @@
 #include <stdio.h>
 
 /**
- * insert_node - that inserts a number into a sorted singly linked list
+ * insert_node - inserts a number into a sorted singly linked list
  * @head: double pointer, pointer to the pointer to a node (struct)
- * @number = value stored in the node
+ * @number is the value stored in the node
  * Return: address of the new node, or NULL if it failed
  */
 
