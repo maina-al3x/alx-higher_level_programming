@@ -5,6 +5,7 @@
 # operators for my calculator are +, -, *, /
 # argc is an integer representing the number of arguments of the program
 # len is a function that returns the number of items in an object
+# argv is the list containing all the arguments
 
 if __name__ == '__main__':
 
