@@ -1,60 +1,46 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <string.h>
+#include <unistd.h>
 #include <stdio.h>
 
 /**
  * insert_node - inserts a number into a sorted singly linked list
  * @head: double pointer, pointer to the pointer to a node (struct)
- * @number is the value stored in the node
+ * @number: is the value stored in the node
  * Return: address of the new node, or NULL if it failed
  */
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new_node = NULL;
-	listint_t *prev = *head;
-	listint_t *current = (*head)->next;
+	listint_t *new = NULL;
+	listint_t *previous = NULL;
+	listint_t *current = *head;
 
 	if (!head)
 		return (NULL);
 
-	new_node = malloc(sizeof(listint_t));
-	if (new_node == NULL)
+	new = malloc(sizeof(listint_t));
+	if (!new)
 		return (NULL);
-	new_node->n = number;
-	new_node->next = NULL;
 
-	if (*head == NULL)
-		*head = new_node;
+	new->n = number;
+	new->next = NULL;
 
-	if ((*head)->next == NULL)
+	if (!head || (*head)->n > number)
 	{
-		if (number > prev->n)
-			prev->next = new_node;
-		else
-		{
-			new_node->next = *head;
-			*head = new_node;
-		}
-	}
-	while (current->next != NULL)
-	{
-		if (number <= current->n)
-		{
-			new_node->next = current;
-			prev->next = new_node;
-			break;
-		}
-		prev = prev->next;
-		current = current->next;
-	}
-	if (current->next == NULL && number <= current->n)
-	{
-		new_node->next = current;
-		prev->next = new_node;
+		new->next = *head;
+		return (*head);
 	}
 	else
-		current->next = new_node;
-	return (new_node);
+	{
+		while (current && current->n < number)
+		{
+			previous = current;
+			current = current;
+		}
+
+		previous->next = new;
+		new->next = current;
+	}
+	return (new);
 }
