@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-#this is a  program that imports all functions from the file calculator_1.py and handles basic operations
-#operators for my calculator are addition, subtrction, multiplacation and subtraction
-#argc is an integer representing the number of arguments of the program
-#len is a function that returns the number of items in an object
+# this is a  program that imports all functions from the file calculator_1.py
+# and handles basic operations
+# operators for my calculator are +, -, *, /
+# argc is an integer representing the number of arguments of the program
+# len is a function that returns the number of items in an object
 
 if __name__ == '__main__':
 
